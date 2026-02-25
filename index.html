@@ -1,4 +1,4 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -6,11 +6,11 @@
   <title>Happy Anniversary 💖</title>
 
   <style>
-    /* ===== Base vibe ===== */
     :root{
+      --hot:#ff2fa3;
       --pink1:#ffb6d5;
       --pink2:#ffd1e6;
-      --hot:#ff2fa3;
+      --card: rgba(255,255,255,.92);
       --shadow: 0 14px 35px rgba(0,0,0,.15);
     }
 
@@ -19,62 +19,66 @@
       min-height:100vh;
       font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       text-align:center;
-      padding: 26px 18px 60px;
+      padding: 18px 16px 70px;
       color:#111;
       background: linear-gradient(135deg, var(--pink2), var(--pink1));
       overflow-x:hidden;
+      cursor: none; /* we draw a cute cursor */
     }
 
-    /* subtle sparkle overlay (glitter) */
+    /* Glitter overlay (MySpace sparkle vibe) */
     body::before{
       content:"";
       position:fixed;
       inset:0;
       pointer-events:none;
-      opacity:.22;
+      opacity:.23;
       background:
-        radial-gradient(circle at 20% 30%, rgba(255,255,255,.9) 0 1px, transparent 2px),
-        radial-gradient(circle at 70% 10%, rgba(255,255,255,.8) 0 1px, transparent 2px),
-        radial-gradient(circle at 40% 80%, rgba(255,255,255,.8) 0 1px, transparent 2px),
-        radial-gradient(circle at 85% 65%, rgba(255,255,255,.7) 0 1px, transparent 2px),
-        radial-gradient(circle at 10% 65%, rgba(255,255,255,.7) 0 1px, transparent 2px);
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.95) 0 1px, transparent 2px),
+        radial-gradient(circle at 70% 10%, rgba(255,255,255,.85) 0 1px, transparent 2px),
+        radial-gradient(circle at 45% 85%, rgba(255,255,255,.85) 0 1px, transparent 2px),
+        radial-gradient(circle at 85% 65%, rgba(255,255,255,.75) 0 1px, transparent 2px),
+        radial-gradient(circle at 10% 70%, rgba(255,255,255,.75) 0 1px, transparent 2px);
       background-size: 180px 180px, 220px 220px, 200px 200px, 260px 260px, 240px 240px;
       animation: glitterMove 8s linear infinite;
       mix-blend-mode: screen;
     }
-
     @keyframes glitterMove{
       0%   { transform: translate3d(0,0,0); }
       50%  { transform: translate3d(18px,-10px,0); }
       100% { transform: translate3d(0,0,0); }
     }
 
-    /* floating shimmer layer */
-    .shimmer{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      opacity:.18;
-      background: repeating-linear-gradient(
-        45deg,
-        rgba(255,255,255,.25) 0 2px,
-        rgba(255,255,255,0) 2px 22px
-      );
-      animation: shimmer 10s linear infinite;
-      mix-blend-mode: overlay;
+    /* MySpace style marquee */
+    .marquee{
+      background: rgba(255,47,163,.10);
+      border: 1px solid rgba(255,47,163,.25);
+      border-radius: 14px;
+      padding: 10px 12px;
+      margin: 8px auto 14px;
+      max-width: 760px;
+      box-shadow: 0 10px 20px rgba(0,0,0,.06);
+      overflow:hidden;
     }
-    @keyframes shimmer{
-      0% { transform: translateX(-40px); }
-      100% { transform: translateX(40px); }
+    .marquee span{
+      display:inline-block;
+      white-space: nowrap;
+      animation: scroll 12s linear infinite;
+      font-weight: 900;
+      color: var(--hot);
+      letter-spacing:.05em;
+    }
+    @keyframes scroll{
+      0%{ transform: translateX(100%); }
+      100%{ transform: translateX(-120%); }
     }
 
-    /* ===== Main card ===== */
     .box{
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
-      background: rgba(255,255,255,.92);
+      background: var(--card);
       border-radius: 22px;
-      padding: 22px 18px;
+      padding: 18px 16px 22px;
       box-shadow: var(--shadow);
       border: 2px solid rgba(255,47,163,.25);
       backdrop-filter: blur(2px);
@@ -86,16 +90,20 @@
     }
 
     h1{
-      margin: 6px 0 6px;
+      margin: 6px 0 4px;
       font-size: 30px;
       letter-spacing: 2px;
       text-shadow: 0 2px 0 rgba(255,47,163,.15);
     }
 
-    .sub{
-      margin: 6px 0 12px;
-      font-size: 14px;
-      opacity:.9;
+    .status{
+      display:inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,47,163,.10);
+      border: 1px solid rgba(255,47,163,.22);
+      font-size: 13px;
+      margin: 6px 0 10px;
     }
 
     h3{
@@ -105,38 +113,50 @@
       text-transform: uppercase;
       font-size: 13px;
     }
+    p{ line-height:1.55; margin: 10px 0; }
 
-    p{
-      line-height:1.55;
-      margin: 10px 0;
+    /* Bouncing V's */
+    .vline{
+      margin: 8px 0 2px;
+      font-weight: 900;
+      letter-spacing: 8px;
+      color: rgba(255,47,163,.75);
+      user-select:none;
+    }
+    .v{
+      display:inline-block;
+      animation: bounceV 1.1s ease-in-out infinite;
+      text-shadow: 0 6px 0 rgba(255,47,163,.10);
+    }
+    .v:nth-child(2){ animation-delay:.08s; }
+    .v:nth-child(3){ animation-delay:.16s; }
+    .v:nth-child(4){ animation-delay:.24s; }
+    .v:nth-child(5){ animation-delay:.32s; }
+    .v:nth-child(6){ animation-delay:.40s; }
+    @keyframes bounceV{
+      0%,100%{ transform: translateY(0); }
+      50%{ transform: translateY(-8px) scale(1.05); }
     }
 
-    /* ===== Button ===== */
+    /* Button */
     .btn{
       background: var(--hot);
-      color: white;
+      color: #fff;
       border: none;
       padding: 12px 18px;
       border-radius: 12px;
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 900;
       cursor: pointer;
       box-shadow: 0 8px 0 rgba(198,30,111,.9);
       transition: transform .08s ease, filter .2s ease;
     }
-    .btn:active{
-      transform: translateY(3px);
-      box-shadow: 0 5px 0 rgba(198,30,111,.9);
-    }
+    .btn:active{ transform: translateY(3px); box-shadow: 0 5px 0 rgba(198,30,111,.9); }
     .btn:hover{ filter: brightness(1.05); }
 
-    audio{
-      width:100%;
-      max-width: 520px;
-      margin-top: 8px;
-    }
+    audio{ width:100%; max-width:520px; margin-top:8px; }
 
-    /* ===== Photos ===== */
+    /* Photos */
     .gallery{
       display:grid;
       grid-template-columns: repeat(2, 1fr);
@@ -148,14 +168,12 @@
       border-radius: 14px;
       border: 2px solid rgba(255,47,163,.18);
       box-shadow: 0 10px 18px rgba(0,0,0,.08);
-      transition: transform .18s ease;
       background:#fff;
+      transition: transform .18s ease;
     }
-    .gallery img:active{
-      transform: scale(0.98);
-    }
+    .gallery img:active{ transform: scale(0.98); }
 
-    /* ===== Top 8 ===== */
+    /* Top 8 card */
     .top8{
       text-align:left;
       display:inline-block;
@@ -172,31 +190,24 @@
     }
     .top8 div:last-child{ border-bottom:none; }
 
-    /* ===== Bouncing V's ===== */
-    .vline{
-      margin: 12px 0 2px;
-      font-weight: 900;
-      letter-spacing: 8px;
-      color: rgba(255,47,163,.75);
-      user-select:none;
+    /* Comments section (MySpace nostalgia) */
+    .comments{
+      text-align:left;
+      margin: 10px auto 0;
+      width: min(520px, 100%);
+      background: rgba(255,255,255,.6);
+      border: 1px solid rgba(255,47,163,.18);
+      border-radius: 14px;
+      padding: 12px 14px;
     }
-    .v{
-      display:inline-block;
-      animation: bounceV 1.1s ease-in-out infinite;
-      text-shadow: 0 6px 0 rgba(255,47,163,.10);
+    .comment{
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,47,163,.12);
     }
-    .v:nth-child(2){ animation-delay:.08s; }
-    .v:nth-child(3){ animation-delay:.16s; }
-    .v:nth-child(4){ animation-delay:.24s; }
-    .v:nth-child(5){ animation-delay:.32s; }
-    .v:nth-child(6){ animation-delay:.40s; }
+    .comment:last-child{ border-bottom:none; }
+    .comment b{ color: var(--hot); }
 
-    @keyframes bounceV{
-      0%,100%{ transform: translateY(0); }
-      50%{ transform: translateY(-8px) scale(1.05); }
-    }
-
-    /* ===== Floating hearts (created by JS) ===== */
+    /* Floating hearts */
     .heart{
       position: fixed;
       left: 50%;
@@ -206,23 +217,77 @@
       opacity: .9;
       animation: floatUp linear forwards;
       filter: drop-shadow(0 6px 6px rgba(0,0,0,.12));
+      z-index: 9997;
     }
     @keyframes floatUp{
       from{ transform: translate3d(var(--x), 0, 0) scale(var(--s)); opacity: .95; }
       to  { transform: translate3d(var(--x2), -120vh, 0) scale(calc(var(--s) + .25)); opacity: 0; }
     }
 
-    /* Make it nice on tiny screens */
+    /* Sparkle trail particles */
+    .spark{
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      pointer-events:none;
+      z-index: 9998;
+      background: radial-gradient(circle, rgba(255,255,255,1) 0 35%, rgba(255,255,255,0) 60%);
+      filter: drop-shadow(0 0 8px rgba(255,255,255,.9));
+      animation: sparkFade 600ms ease-out forwards;
+      mix-blend-mode: screen;
+    }
+    @keyframes sparkFade{
+      from{ transform: scale(1); opacity: 1; }
+      to  { transform: scale(0.1); opacity: 0; }
+    }
+
+    /* Cute custom cursor (heart) */
+    .cursor{
+      position: fixed;
+      width: 18px;
+      height: 18px;
+      pointer-events:none;
+      z-index: 9999;
+      transform: translate(-50%,-50%);
+      filter: drop-shadow(0 6px 8px rgba(0,0,0,.15));
+    }
+    .cursor::before{
+      content:"💖";
+      font-size: 18px;
+      display:block;
+      transform: rotate(-10deg);
+    }
+
+    /* Tap/click burst */
+    .burst{
+      position: fixed;
+      pointer-events:none;
+      z-index: 9996;
+      transform: translate(-50%,-50%);
+      font-size: 18px;
+      animation: burst 800ms ease-out forwards;
+      filter: drop-shadow(0 6px 6px rgba(0,0,0,.12));
+    }
+    @keyframes burst{
+      from{ transform: translate(-50%,-50%) scale(.9); opacity:1; }
+      to{ transform: translate(-50%,-80%) scale(1.4); opacity:0; }
+    }
+
     @media (max-width: 420px){
+      body{ cursor:auto; } /* mobile doesn't need the custom cursor */
       h1{ font-size: 26px; }
       .gallery{ grid-template-columns: 1fr; }
       .vline{ letter-spacing: 6px; }
+      .cursor{ display:none; }
     }
   </style>
 </head>
 
 <body>
-  <div class="shimmer"></div>
+  <div class="marquee">
+    <span>💖 Happy Anniversary DavinaH 💖 — I love you more every day — Azlan • Krew • Evren • Our Apartment 🏡 — Forever ♾️ 💖</span>
+  </div>
 
   <div class="box">
     <div class="vline" aria-hidden="true">
@@ -230,13 +295,14 @@
     </div>
 
     <h1>💖 DAVINAH 💖</h1>
-    <div class="sub">Mood: In love with you 🥰</div>
+    <div class="status">Status: Taken since May 25, 2025 😌</div>
 
     <p><b>Anniversary:</b> MAY 25 2025</p>
     <p id="counter"></p>
 
-    <button class="btn" onclick="document.getElementById('music').play()">▶ Play Our Song</button>
+    <p>Mood: In love with you 🥰</p>
 
+    <button class="btn" onclick="document.getElementById('music').play()">▶ Play Our Song</button>
     <br><br>
 
     <audio id="music" controls>
@@ -276,10 +342,20 @@
       <div>8. Forever ♾️</div>
     </div>
 
+    <h3>Comments 📝</h3>
+    <div class="comments">
+      <div class="comment"><b>You:</b> Happy anniversary baby 💖 I made this just for you.</div>
+      <div class="comment"><b>Her:</b> STOPPP this is so cute 😭💗</div>
+      <div class="comment"><b>Future Us:</b> Married btw 💍</div>
+    </div>
+
     <p style="margin-top:16px; font-style:italic;">
       Everything I want in life somehow leads back to you.
     </p>
   </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
 
   <script>
     // ===== Days together counter =====
@@ -292,14 +368,13 @@
         "We've been together for " + days + " days 💖";
     }, 1000);
 
-    // ===== Floating hearts + glitter hearts =====
+    // ===== Floating hearts stream =====
     const heartChars = ["💖","💗","💕","💘","✨","💞","💝"];
     function spawnHeart(){
       const h = document.createElement("div");
       h.className = "heart";
       h.textContent = heartChars[Math.floor(Math.random()*heartChars.length)];
 
-      // random drift + size + duration
       const x = (Math.random()*80 - 40).toFixed(0) + "vw";
       const x2 = (Math.random()*80 - 40).toFixed(0) + "vw";
       const s = (Math.random()*0.8 + 0.6).toFixed(2);
@@ -314,9 +389,64 @@
       document.body.appendChild(h);
       setTimeout(() => h.remove(), (parseFloat(dur)*1000) + 200);
     }
-
-    // steady stream, not too crazy
     setInterval(spawnHeart, 450);
+
+    // ===== Glitter cursor + sparkle trail =====
+    const cursor = document.getElementById("cursor");
+    let lastSpark = 0;
+
+    function sparkAt(x,y){
+      const s = document.createElement("div");
+      s.className = "spark";
+      s.style.left = x + "px";
+      s.style.top  = y + "px";
+      document.body.appendChild(s);
+      setTimeout(()=>s.remove(), 650);
+    }
+
+    function moveCursor(e){
+      const x = e.clientX, y = e.clientY;
+      cursor.style.left = x + "px";
+      cursor.style.top  = y + "px";
+
+      // throttle sparkles
+      const now = performance.now();
+      if(now - lastSpark > 40){
+        lastSpark = now;
+        sparkAt(x + (Math.random()*10-5), y + (Math.random()*10-5));
+      }
+    }
+
+    // Desktop: custom cursor
+    window.addEventListener("mousemove", moveCursor, {passive:true});
+
+    // ===== Tap/click heart burst =====
+    function burstAt(x,y){
+      // burst emojis around the tap
+      for(let i=0;i<6;i++){
+        const b = document.createElement("div");
+        b.className = "burst";
+        b.textContent = heartChars[Math.floor(Math.random()*heartChars.length)];
+        b.style.left = (x + (Math.random()*40-20)) + "px";
+        b.style.top  = (y + (Math.random()*40-20)) + "px";
+        b.style.animationDuration = (600 + Math.random()*400) + "ms";
+        document.body.appendChild(b);
+        setTimeout(()=>b.remove(), 900);
+      }
+      // extra sparkle
+      for(let i=0;i<10;i++){
+        sparkAt(x + (Math.random()*60-30), y + (Math.random()*60-30));
+      }
+    }
+
+    window.addEventListener("click", (e)=>burstAt(e.clientX, e.clientY));
+
+    // Mobile taps
+    window.addEventListener("touchstart", (e)=>{
+      const t = e.touches[0];
+      if(!t) return;
+      burstAt(t.clientX, t.clientY);
+    }, {passive:true});
   </script>
 </body>
 </html>
