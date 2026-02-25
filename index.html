@@ -24,6 +24,17 @@ button {
   font-size: 16px;
 }
 </style>
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:10px;
+  margin-top:10px;
+}
+.gallery img{
+  width:100%;
+  border-radius:12px;
+  border:2px solid #ffd1dc;
+}
 </head>
 
 <body>
@@ -43,6 +54,17 @@ button {
 </audio>
 
 <h3>About Us</h3>
+<h3>Our Photos 📸</h3>
+
+<div class="gallery">
+  <img src="PHOTO1.jpg" alt="Us 1">
+  <img src="PHOTO2.jpg" alt="Us 2">
+  <img src="PHOTO3.jpg" alt="Us 3">
+  <img src="PHOTO4.jpg" alt="Us 4">
+  <img src="PHOTO5.jpg" alt="Us 5">
+  <img src="PHOTO6.jpg" alt="Us 6">
+  <img src="PHOTO7.jpg" alt="Us 7">
+</div>
 <p>I made you a whole website because texting “happy anniversary” wasn’t enough.
 You deserve effort.
 You deserve thought.
