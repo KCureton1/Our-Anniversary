@@ -1,97 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Happy Anniversary 💖</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  background: pink;
-  font-family: Arial;
-  text-align: center;
-  padding: 20px;
-}
-.box {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-}
-button {
-  background: hotpink;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 10px;
-  font-size: 16px;
-}
-.gallery{
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap:10px;
-  margin-top:10px;
-}
-.gallery img{
-  width:100%;
-  border-radius:12px;
-  border:2px solid #ffd1dc;
-}
+  <title>Happy Anniversary 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { background: pink; font-family: Arial; text-align: center; padding: 20px; }
+    .box { background: white; padding: 20px; border-radius: 15px; }
+    button { background: hotpink; color: white; border: none; padding: 12px 20px; border-radius: 10px; font-size: 16px; }
+    .gallery{ display:grid; grid-template-columns: repeat(2, 1fr); gap:10px; margin-top:10px; }
+    .gallery img{ width:100%; border-radius:12px; border:2px solid #ffd1dc; }
+  </style>
 </head>
 
 <body>
+  <div class="box">
+    <h1>💖 DAVINAH 💖</h1>
+    <p><b>Anniversary:</b> MAY 25 2025</p>
+    <p>Mood: In love with you 🥰</p>
 
-<div class="box">
-<h1>💖 DAVINAH 💖</h1>
-<p><b>Anniversary:</b> MAY 25 2025</p>
+    <button onclick="document.getElementById('music').play()">▶ Play Our Song</button>
+    <br><br>
 
-<p>Mood: In love with you 🥰</p>
+    <audio id="music" controls style="width:100%; max-width:420px;">
+      <source src="song.mp3" type="audio/mpeg" />
+    </audio>
 
-<button onclick="document.getElementById('music').play()">▶ Play Our Song</button>
+    <h3>My Message 💌</h3>
+    <p>PUT YOUR MESSAGE HERE</p>
 
-<br><br>
+    <h3>Our Photos 📸</h3>
+    <div class="gallery">
+      <img src="IMG_2227.jpeg" alt="Us 1">
+      <img src="IMG_2230.jpeg" alt="Us 2">
+      <img src="IMG_3327.jpeg" alt="Us 3">
+      <img src="IMG_5945.jpeg" alt="Us 4">
+      <img src="IMG_7104.jpeg" alt="Us 5">
+      <img src="IMG_7574.jpeg" alt="Us 6">
+    </div>
 
-<audio id="music">
-  <source src="song.mp3" type="audio/mpeg">
-</audio>
-
-<h3>About Us</h3>
-  
-<h3>Our Photos 📸</h3>
-<div class="gallery">
-  <img src="IMG_2227.jpeg" alt="Us 1">
-  <img src="IMG_2230.jpeg" alt="Us 2">
-  <img src="IMG_3327.jpeg" alt="Us 3">
-  <img src="IMG_5945.jpeg" alt="Us 4">
-  <img src="IMG_7104.jpeg" alt="Us 5">
-  <img src="IMG_7574.jpeg" alt="Us 6">
-  <img src="fqs 2025-10-09 1935....jpeg" alt="Us 7">
-</div>
-<p>I made you a whole website because texting “happy anniversary” wasn’t enough.
-You deserve effort.
-You deserve thought.
-You deserve someone who is obsessed with you in the healthiest way possible.
-Lucky for you… that’s me.
-<h3>Why I Love You</h3>
-<ul style="text-align:left; display:inline-block;">
-<li>Your laugh</li>
-<li>The way you look at me</li>
-<li>How you care about people</li>
-<li>How safe you make me feel</li>
-<li>That you're mine 😌</li>
-</ul>
-.</p>
-
-<h3>Top 8</h3>
-<p>
-1. You<br>
-2. Me<br>
-3. Us<br>
-4. Forever
-5. Azlan
-6. Evren
-7. Krew
-8. Your Happiness
-</p>
-
-</div>
-
+    <h3>Top 8</h3>
+    <p>1. You<br>2. Me<br>3. Us<br>4. Forever</p>
+  </div>
 </body>
 </html>
